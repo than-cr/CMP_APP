@@ -8,7 +8,8 @@
             "name": "cmp_app",
             "program": "lib/main.dart",
             "request": "launch",
-            "type": "dart"
+            "type": "dart",
+            //"args": ["--no-sound-null-safety"]
         },
         {
             "name": "cmp_app (profile mode)",

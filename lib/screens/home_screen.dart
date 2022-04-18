@@ -1,5 +1,8 @@
+import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+import 'package:cmp_app/screens/calendar_screen.dart';
+import 'package:cmp_app/screens/home_tab_screen.dart';
+import 'package:cmp_app/screens/streaming_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -9,57 +12,79 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreen extends State<HomeScreen> {
-  int _selectedPage = 1;
+  int _currentIndex = 1;
+  late PageController _pageController;
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedPage = index;
-    });
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController();
   }
 
-  static final List<Widget> _pages = <Widget>[
-    const Scaffold(
-      body: Center(
-        child: Text('En vivo'),
-      ),
-    ),
-    const Scaffold(
-      body: Center(
-        child: Text(
-          'Centro Misionero\nPentecostés',
-          style: TextStyle(fontSize: 30),
-          textAlign: TextAlign.center,
-        ),
-      ),
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  void _onItemSelected(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+    _pageController.jumpToPage(index);
+  }
+
+  void _onPageChanged(int index) {
+    setState(() => _currentIndex = index);
+  }
+
+  BottomNavyBarItem _createBottomNavyBarItem(String title, Icon icon) {
+    return BottomNavyBarItem(
+        icon: icon, title: Text(title, style: const TextStyle(fontSize: 11)));
+  }
+
+  static const List<Widget> _pages = <Widget>[
+    Scaffold(
+      body: StreamingScreen(),
     ),
     Scaffold(
-        body: SfCalendar(
-      view: CalendarView.month,
-      allowedViews: const [CalendarView.day, CalendarView.month],
-      firstDayOfWeek: 7,
-      initialDisplayDate: DateTime.now(),
-      showCurrentTimeIndicator: true,
-      showWeekNumber: true,
-    ))
+      body: HomeTabScreen(),
+    ),
+    Scaffold(
+      body: CalendarScreen(),
+    ),
+    Scaffold(
+      body: Center(
+        child: Text('Test'),
+      ),
+    )
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: const Text('CMP'),
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text('CMP'),
+      ),
+      body: SizedBox.expand(
+        child: PageView(
+          controller: _pageController,
+          onPageChanged: _onPageChanged,
+          children: [_pages.elementAt(_currentIndex)],
         ),
-        body: Center(child: _pages.elementAt(_selectedPage)),
-        bottomNavigationBar: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(icon: Icon(Icons.stream), label: 'En vivo'),
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Inicio'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.calendar_month), label: 'Actividades'),
-          ],
-          currentIndex: _selectedPage,
-          onTap: _onItemTapped,
-        ));
+      ),
+      bottomNavigationBar: BottomNavyBar(
+        selectedIndex: _currentIndex,
+        onItemSelected: _onItemSelected,
+        items: [
+          _createBottomNavyBarItem('En vivo', const Icon(Icons.stream)),
+          _createBottomNavyBarItem('Inicio', const Icon(Icons.home)),
+          _createBottomNavyBarItem(
+              'Actividades', const Icon(Icons.calendar_month)),
+          _createBottomNavyBarItem('Iniciar Sesión', const Icon(Icons.people))
+        ],
+      ),
+    );
   }
 }
