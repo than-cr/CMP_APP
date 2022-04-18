@@ -55,7 +55,7 @@ class _HomeScreen extends State<HomeScreen> {
     ),
     Scaffold(
       body: Center(
-        child: Text('Test'),
+        child: Text('Iniciar sesión'),
       ),
     )
   ];
