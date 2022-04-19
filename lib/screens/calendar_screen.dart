@@ -17,6 +17,7 @@ class _CalendarScreen extends State<CalendarScreen> {
       firstDayOfWeek: 7,
       initialDisplayDate: DateTime.now(),
       showCurrentTimeIndicator: true,
+      initialSelectedDate: DateTime.now(),
     );
   }
 }

@@ -43,18 +43,34 @@ class _HomeScreen extends State<HomeScreen> {
         icon: icon, title: Text(title, style: const TextStyle(fontSize: 11)));
   }
 
-  static const List<Widget> _pages = <Widget>[
+  static final List<Widget> _pages = <Widget>[
     Scaffold(
-      body: StreamingScreen(),
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text('En Vivo'),
+      ),
+      body: const StreamingScreen(),
     ),
     Scaffold(
-      body: HomeTabScreen(),
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text('Inicio'),
+      ),
+      body: const HomeTabScreen(),
     ),
     Scaffold(
-      body: CalendarScreen(),
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text('Actividades'),
+      ),
+      body: const CalendarScreen(),
     ),
     Scaffold(
-      body: Center(
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text('Iniciar sesión'),
+      ),
+      body: const Center(
         child: Text('Iniciar sesión'),
       ),
     )
@@ -63,10 +79,6 @@ class _HomeScreen extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text('CMP'),
-      ),
       body: SizedBox.expand(
         child: PageView(
           controller: _pageController,
