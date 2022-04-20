@@ -45,36 +45,10 @@ class _HomeScreen extends State<HomeScreen> {
   }
 
   static final List<Widget> _pages = <Widget>[
-    Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text('En Vivo'),
-      ),
-      body: const StreamingScreen(),
-    ),
-    Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text('Inicio'),
-      ),
-      body: const HomeTabScreen(),
-    ),
-    Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text('Actividades'),
-      ),
-      body: const CalendarScreen(),
-    ),
-    Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text('Iniciar sesión'),
-      ),
-      body: const Center(
-        child: AuthenticationWrapper(),
-      ),
-    )
+    const StreamingScreen(),
+    const HomeTabScreen(),
+    const CalendarScreen(),
+    const AuthenticationWrapper()
   ];
 
   @override

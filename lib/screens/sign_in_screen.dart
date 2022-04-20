@@ -11,6 +11,10 @@ class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text('Iniciar sesión'),
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -20,6 +24,9 @@ class SignInScreen extends StatelessWidget {
           ),
           TextField(
             controller: passwordController,
+            obscureText: true,
+            autocorrect: false,
+            enableSuggestions: false,
             decoration: const InputDecoration(labelText: 'Contraseña'),
           ),
           ElevatedButton(
