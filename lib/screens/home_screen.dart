@@ -72,7 +72,7 @@ class _HomeScreen extends State<HomeScreen> {
         title: const Text('Iniciar sesión'),
       ),
       body: const Center(
-        child: AuthenticationScreen(),
+        child: AuthenticationWrapper(),
       ),
     )
   ];
