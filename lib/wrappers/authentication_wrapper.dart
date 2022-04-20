@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class AuthenticationScreen extends StatelessWidget {
-  const AuthenticationScreen({Key? key}) : super(key: key);
+class AuthenticationWrapper extends StatelessWidget {
+  const AuthenticationWrapper({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
