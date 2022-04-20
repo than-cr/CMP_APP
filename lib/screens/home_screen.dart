@@ -1,4 +1,5 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+import 'package:cmp_app/wrappers/authentication_wrapper.dart';
 import 'package:cmp_app/screens/calendar_screen.dart';
 import 'package:cmp_app/screens/home_tab_screen.dart';
 import 'package:cmp_app/screens/streaming_screen.dart';
@@ -71,7 +72,7 @@ class _HomeScreen extends State<HomeScreen> {
         title: const Text('Iniciar sesión'),
       ),
       body: const Center(
-        child: Text('Iniciar sesión'),
+        child: AuthenticationScreen(),
       ),
     )
   ];
