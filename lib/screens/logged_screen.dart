@@ -2,8 +2,8 @@ import 'package:cmp_app/services/authentication_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class SignedInScreen extends StatelessWidget {
-  const SignedInScreen({Key? key}) : super(key: key);
+class LoggedScreen extends StatelessWidget {
+  const LoggedScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

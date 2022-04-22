@@ -42,6 +42,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '1064975885884',
     projectId: 'cmpapp-347801',
     authDomain: 'cmpapp-347801.firebaseapp.com',
+    databaseURL: 'https://cmpapp-347801-default-rtdb.firebaseio.com',
     storageBucket: 'cmpapp-347801.appspot.com',
     measurementId: 'G-C2KMPF6RFB',
   );
@@ -51,6 +52,7 @@ class DefaultFirebaseOptions {
     appId: '1:1064975885884:android:6921b6d1e7ac5b7a254539',
     messagingSenderId: '1064975885884',
     projectId: 'cmpapp-347801',
+    databaseURL: 'https://cmpapp-347801-default-rtdb.firebaseio.com',
     storageBucket: 'cmpapp-347801.appspot.com',
   );
 
@@ -59,6 +61,7 @@ class DefaultFirebaseOptions {
     appId: '1:1064975885884:ios:85fd0107236d0ab0254539',
     messagingSenderId: '1064975885884',
     projectId: 'cmpapp-347801',
+    databaseURL: 'https://cmpapp-347801-default-rtdb.firebaseio.com',
     storageBucket: 'cmpapp-347801.appspot.com',
     iosClientId: '1064975885884-m1c8h99amij865qtd76gso831foac1fq.apps.googleusercontent.com',
     iosBundleId: 'com.cmp.app',

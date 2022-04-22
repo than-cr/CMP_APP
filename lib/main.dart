@@ -1,12 +1,10 @@
 import 'package:cmp_app/firebase_options.dart';
-import 'package:cmp_app/wrappers/authentication_wrapper.dart';
 import 'package:cmp_app/screens/home_screen.dart';
 import 'package:cmp_app/services/authentication_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:cmp_app/screens/sign_in_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
