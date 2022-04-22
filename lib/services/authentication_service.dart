@@ -42,7 +42,7 @@ class AuthenticationService {
       User? user;
 
       if (password != passwordConfirmed) {
-        return '';
+        return 'Contraseñas son diferentes';
       }
 
       Validators.validateName(name: name);
