@@ -10,11 +10,17 @@ class HomeTabScreen extends StatefulWidget {
 class _HomeTabScreen extends State<HomeTabScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        'Centro Misionero\nPentecostés',
-        style: TextStyle(fontSize: 30),
-        textAlign: TextAlign.center,
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text('Inicio'),
+      ),
+      body: const Center(
+        child: Text(
+          'Centro Misionero\nPentecostés',
+          style: TextStyle(fontSize: 30),
+          textAlign: TextAlign.center,
+        ),
       ),
     );
   }

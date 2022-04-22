@@ -1,4 +1,5 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+import 'package:cmp_app/wrappers/authentication_wrapper.dart';
 import 'package:cmp_app/screens/calendar_screen.dart';
 import 'package:cmp_app/screens/home_tab_screen.dart';
 import 'package:cmp_app/screens/streaming_screen.dart';
@@ -44,36 +45,10 @@ class _HomeScreen extends State<HomeScreen> {
   }
 
   static final List<Widget> _pages = <Widget>[
-    Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text('En Vivo'),
-      ),
-      body: const StreamingScreen(),
-    ),
-    Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text('Inicio'),
-      ),
-      body: const HomeTabScreen(),
-    ),
-    Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text('Actividades'),
-      ),
-      body: const CalendarScreen(),
-    ),
-    Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text('Iniciar sesión'),
-      ),
-      body: const Center(
-        child: Text('Iniciar sesión'),
-      ),
-    )
+    const StreamingScreen(),
+    const HomeTabScreen(),
+    const CalendarScreen(),
+    const AuthenticationWrapper()
   ];
 
   @override

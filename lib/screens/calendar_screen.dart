@@ -11,13 +11,19 @@ class CalendarScreen extends StatefulWidget {
 class _CalendarScreen extends State<CalendarScreen> {
   @override
   Widget build(BuildContext context) {
-    return SfCalendar(
-      view: CalendarView.month,
-      allowedViews: const [CalendarView.day, CalendarView.month],
-      firstDayOfWeek: 7,
-      initialDisplayDate: DateTime.now(),
-      showCurrentTimeIndicator: true,
-      initialSelectedDate: DateTime.now(),
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text('Actividades'),
+      ),
+      body: SfCalendar(
+        view: CalendarView.month,
+        allowedViews: const [CalendarView.day, CalendarView.month],
+        firstDayOfWeek: 7,
+        initialDisplayDate: DateTime.now(),
+        showCurrentTimeIndicator: true,
+        initialSelectedDate: DateTime.now(),
+      ),
     );
   }
 }

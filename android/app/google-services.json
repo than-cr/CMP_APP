@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1064975885884",
+    "firebase_url": "https://cmpapp-347801-default-rtdb.firebaseio.com",
+    "project_id": "cmpapp-347801",
+    "storage_bucket": "cmpapp-347801.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1064975885884:android:6921b6d1e7ac5b7a254539",
+        "android_client_info": {
+          "package_name": "com.example.cmp_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1064975885884-s2h3h5smk2jp6ne0kfo2v9ea9hunit18.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDR9GFeXA3dbAQlOGeTwISuHlD6DqeUcb4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1064975885884-s2h3h5smk2jp6ne0kfo2v9ea9hunit18.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1064975885884-m1c8h99amij865qtd76gso831foac1fq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.cmp.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

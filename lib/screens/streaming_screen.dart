@@ -16,15 +16,22 @@ class _StreamingScreen extends State<StreamingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-        child: SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(children: [
-          SocialEmbed(
-              socialMediaObj: FacebookVideoEmbedData(videoUrl: _getVideoLink()))
-        ]),
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text('En Vivo'),
       ),
-    ));
+      body: Center(
+          child: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(children: [
+            SocialEmbed(
+                socialMediaObj:
+                    FacebookVideoEmbedData(videoUrl: _getVideoLink()))
+          ]),
+        ),
+      )),
+    );
   }
 }
