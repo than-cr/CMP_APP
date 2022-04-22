@@ -44,7 +44,8 @@ class SignInScreen extends StatelessWidget {
                   onPressed: () {
                     context.read<AuthenticationService>().signIn(
                         email: emailController.text,
-                        password: passwordController.text);
+                        password: passwordController.text,
+                        context: context);
                   },
                   child: const Text('Iniciar sesión')),
               const TextButton(

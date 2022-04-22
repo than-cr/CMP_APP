@@ -1,5 +1,6 @@
 import 'package:cmp_app/utils/validators.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 
 class AuthenticationService {
   final FirebaseAuth _firebaseAuth;
@@ -9,13 +10,19 @@ class AuthenticationService {
   Stream<User?> get authStateChanges => _firebaseAuth.authStateChanges();
 
   Future<String> signIn(
-      {required String email, required String password}) async {
+      {required String email,
+      required String password,
+      required BuildContext context}) async {
     try {
       await _firebaseAuth.signInWithEmailAndPassword(
           email: email, password: password);
 
       return 'Sesión iniciada';
     } on FirebaseAuthException catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(e.message!),
+        backgroundColor: Theme.of(context).errorColor,
+      ));
       return e.message!;
     }
   }
@@ -24,17 +31,18 @@ class AuthenticationService {
     await _firebaseAuth.signOut();
   }
 
-  Future<User?> register(
+  Future<String> register(
       {required String name,
       required String lastName,
       required String email,
       required String password,
-      required String passwordConfirmed}) async {
+      required String passwordConfirmed,
+      required BuildContext context}) async {
     try {
       User? user;
 
       if (password != passwordConfirmed) {
-        return null;
+        return '';
       }
 
       Validators.validateName(name: name);
@@ -49,9 +57,14 @@ class AuthenticationService {
       await user.reload();
 
       user = _firebaseAuth.currentUser;
-      return user;
+      Navigator.pop(context);
+      return 'Registered';
     } on FirebaseAuthException catch (e) {
-      return null;
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(e.message!),
+        backgroundColor: Theme.of(context).errorColor,
+      ));
+      return e.message!;
     }
   }
 }

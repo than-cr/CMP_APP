@@ -78,7 +78,8 @@ class RegisterScreen extends StatelessWidget {
                     lastName: lastNameController.text,
                     email: emailController.text,
                     password: passwordController.text,
-                    passwordConfirmed: passwordConfirmController.text);
+                    passwordConfirmed: passwordConfirmController.text,
+                    context: context);
               },
               child: const Text('Registrar')),
         ],
