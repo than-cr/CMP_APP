@@ -1,1 +1,1 @@
-enum Roles { user, member, content_manager, administrator }
+enum Roles { user, member, contentManager, administrator }

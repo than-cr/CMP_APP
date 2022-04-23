@@ -13,6 +13,10 @@ class AuthenticationService {
 
   Stream<User?> get authStateChanges => _firebaseAuth.authStateChanges();
 
+  User? getLoggedUser() {
+    return _firebaseAuth.currentUser;
+  }
+
   Future<String> signIn(
       {required String email,
       required String password,
