@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:cmp_app/models/user_model.dart';
 import 'package:firebase_database/firebase_database.dart';
 
@@ -9,6 +11,6 @@ class UserService {
     String referenceUrl = _userReference + user.uid;
 
     DatabaseReference _dbRef = _firebaseDatabase.ref(referenceUrl);
-    _dbRef.set(user);
+    _dbRef.set(user.toJson());
   }
 }

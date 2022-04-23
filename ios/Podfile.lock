@@ -1,36 +1,29 @@
 PODS:
-  - cloud_firestore (3.1.12):
-    - Firebase/Firestore (= 8.14.0)
+  - Firebase/Auth (8.15.0):
+    - Firebase/CoreOnly
+    - FirebaseAuth (~> 8.15.0)
+  - Firebase/CoreOnly (8.15.0):
+    - FirebaseCore (= 8.15.0)
+  - Firebase/Database (8.15.0):
+    - Firebase/CoreOnly
+    - FirebaseDatabase (~> 8.15.0)
+  - firebase_auth (3.3.15):
+    - Firebase/Auth (= 8.15.0)
     - firebase_core
     - Flutter
-  - Firebase/Auth (8.14.0):
-    - Firebase/CoreOnly
-    - FirebaseAuth (~> 8.14.0)
-  - Firebase/CoreOnly (8.14.0):
-    - FirebaseCore (= 8.14.0)
-  - Firebase/Database (8.14.0):
-    - Firebase/CoreOnly
-    - FirebaseDatabase (~> 8.14.0)
-  - Firebase/Firestore (8.14.0):
-    - Firebase/CoreOnly
-    - FirebaseFirestore (~> 8.14.0)
-  - firebase_auth (3.3.14):
-    - Firebase/Auth (= 8.14.0)
-    - firebase_core
-    - Flutter
-  - firebase_core (1.14.1):
-    - Firebase/CoreOnly (= 8.14.0)
+  - firebase_core (1.15.0):
+    - Firebase/CoreOnly (= 8.15.0)
     - Flutter
   - firebase_database (9.0.12):
-    - Firebase/Database (= 8.14.0)
+    - Firebase/Database (= 8.15.0)
     - firebase_core
     - Flutter
-  - FirebaseAuth (8.14.0):
+  - FirebaseAuth (8.15.0):
     - FirebaseCore (~> 8.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
     - GoogleUtilities/Environment (~> 7.7)
     - GTMSessionFetcher/Core (~> 1.5)
-  - FirebaseCore (8.14.0):
+  - FirebaseCore (8.15.0):
     - FirebaseCoreDiagnostics (~> 8.0)
     - GoogleUtilities/Environment (~> 7.7)
     - GoogleUtilities/Logger (~> 7.7)
@@ -39,17 +32,9 @@ PODS:
     - GoogleUtilities/Environment (~> 7.7)
     - GoogleUtilities/Logger (~> 7.7)
     - nanopb (~> 2.30908.0)
-  - FirebaseDatabase (8.14.0):
+  - FirebaseDatabase (8.15.0):
     - FirebaseCore (~> 8.0)
     - leveldb-library (~> 1.22)
-  - FirebaseFirestore (8.14.0):
-    - FirebaseFirestore/AutodetectLeveldb (= 8.14.0)
-  - FirebaseFirestore/AutodetectLeveldb (8.14.0):
-    - FirebaseFirestore/Base
-    - FirebaseFirestore/WithLeveldb
-  - FirebaseFirestore/Base (8.14.0)
-  - FirebaseFirestore/WithLeveldb (8.14.0):
-    - FirebaseFirestore/Base
   - Flutter (1.0.0)
   - GoogleDataTransport (9.1.2):
     - GoogleUtilities/Environment (~> 7.2)
@@ -86,11 +71,9 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
-  - cloud_firestore (from `.symlinks/plugins/cloud_firestore/ios`)
   - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - firebase_database (from `.symlinks/plugins/firebase_database/ios`)
-  - FirebaseFirestore (from `https://github.com/invertase/firestore-ios-sdk-frameworks.git`, tag `8.14.0`)
   - Flutter (from `Flutter`)
   - path_provider_ios (from `.symlinks/plugins/path_provider_ios/ios`)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
@@ -111,17 +94,12 @@ SPEC REPOS:
     - PromisesObjC
 
 EXTERNAL SOURCES:
-  cloud_firestore:
-    :path: ".symlinks/plugins/cloud_firestore/ios"
   firebase_auth:
     :path: ".symlinks/plugins/firebase_auth/ios"
   firebase_core:
     :path: ".symlinks/plugins/firebase_core/ios"
   firebase_database:
     :path: ".symlinks/plugins/firebase_database/ios"
-  FirebaseFirestore:
-    :git: https://github.com/invertase/firestore-ios-sdk-frameworks.git
-    :tag: 8.14.0
   Flutter:
     :path: Flutter
   path_provider_ios:
@@ -131,22 +109,15 @@ EXTERNAL SOURCES:
   webview_flutter_wkwebview:
     :path: ".symlinks/plugins/webview_flutter_wkwebview/ios"
 
-CHECKOUT OPTIONS:
-  FirebaseFirestore:
-    :git: https://github.com/invertase/firestore-ios-sdk-frameworks.git
-    :tag: 8.14.0
-
 SPEC CHECKSUMS:
-  cloud_firestore: 6894050fe57f80e72d84d5d6c57392f3d1615c19
-  Firebase: 7e8fe528c161b9271d365217a74c16aaf834578e
-  firebase_auth: db3557d178b86a0d2ccdb7a878a1d1c2fe70de4e
-  firebase_core: cdef02fcf55872191eb0568d4c31a7a700e38582
-  firebase_database: 30b6def29728c4912cfddd21a7e452802a0b9771
-  FirebaseAuth: c5fde343630090253d3af7e2d35697b414b40202
-  FirebaseCore: b84a44ee7ba999e0f9f76d198a9c7f60a797b848
+  Firebase: 5f8193dff4b5b7c5d5ef72ae54bb76c08e2b841d
+  firebase_auth: 0624c0e2e1c0732209286f99cdacfe2b985a3c61
+  firebase_core: fa19947d8db1c0a62d8872c45039b3113829cd2e
+  firebase_database: ed0022d7eac38c2946c080d0920c70ff01191f16
+  FirebaseAuth: 3e73bf8abf4fbb40f8b421f361f4cc48ee57388c
+  FirebaseCore: 5743c5785c074a794d35f2fff7ecc254a91e08b1
   FirebaseCoreDiagnostics: 92e07a649aeb66352b319d43bdd2ee3942af84cb
-  FirebaseDatabase: 8bfbe7bb8d355f9727507bcf4a2116cb3aabdc5e
-  FirebaseFirestore: dc1455307e2478af30dcd4c3020ba52654c6b62d
+  FirebaseDatabase: f567afd233e54a303d84423207736590a6feb419
   Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
@@ -158,6 +129,6 @@ SPEC CHECKSUMS:
   url_launcher_ios: 839c58cdb4279282219f5e248c3321761ff3c4de
   webview_flutter_wkwebview: b7e70ef1ddded7e69c796c7390ee74180182971f
 
-PODFILE CHECKSUM: 7d5633810b1c31272c428d0fe5ebd786b845120f
+PODFILE CHECKSUM: a5fd5131e1486e8b9ebf9caa3a99c02d7863c9dc
 
 COCOAPODS: 1.11.3

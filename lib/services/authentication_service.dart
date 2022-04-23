@@ -1,4 +1,7 @@
+import 'package:cmp_app/models/user_model.dart';
+import 'package:cmp_app/services/user_service.dart';
 import 'package:cmp_app/utils/common.dart';
+import 'package:cmp_app/utils/types.dart';
 import 'package:cmp_app/utils/validators.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -55,6 +58,20 @@ class AuthenticationService {
       await user.reload();
 
       user = _firebaseAuth.currentUser;
+
+      late Users myUser;
+      if (user != null) {
+        myUser = Users(
+            uid: user.uid,
+            name: name,
+            lastName: lastName,
+            email: email,
+            phone: '--',
+            role: Roles.user);
+      }
+
+      UserService().addUser(myUser);
+
       Common.showAlert(context, 'Registro exitoso', true);
       Navigator.pop(context);
       return 'Registro exitoso';
