@@ -1,3 +1,4 @@
+import 'package:cmp_app/utils/common.dart';
 import 'package:cmp_app/utils/validators.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -19,10 +20,7 @@ class AuthenticationService {
 
       return 'Sesión iniciada';
     } on FirebaseAuthException catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(e.message!),
-        backgroundColor: Theme.of(context).errorColor,
-      ));
+      Common.showAlert(context, e.message!, false);
       return e.message!;
     }
   }
@@ -57,13 +55,11 @@ class AuthenticationService {
       await user.reload();
 
       user = _firebaseAuth.currentUser;
+      Common.showAlert(context, 'Registro exitoso', true);
       Navigator.pop(context);
       return 'Registered';
     } on FirebaseAuthException catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(e.message!),
-        backgroundColor: Theme.of(context).errorColor,
-      ));
+      Common.showAlert(context, e.message!, false);
       return e.message!;
     }
   }
