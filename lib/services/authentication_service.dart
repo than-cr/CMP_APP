@@ -57,7 +57,7 @@ class AuthenticationService {
       user = _firebaseAuth.currentUser;
       Common.showAlert(context, 'Registro exitoso', true);
       Navigator.pop(context);
-      return 'Registered';
+      return 'Registro exitoso';
     } on FirebaseAuthException catch (e) {
       Common.showAlert(context, e.message!, false);
       return e.message!;
