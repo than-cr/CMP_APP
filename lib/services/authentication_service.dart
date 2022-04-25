@@ -40,6 +40,7 @@ class AuthenticationService {
       {required String name,
       required String lastName,
       required String email,
+      required String phone,
       required String password,
       required String passwordConfirmed,
       required BuildContext context}) async {
@@ -70,7 +71,7 @@ class AuthenticationService {
             name: name,
             lastName: lastName,
             email: email,
-            phone: '--',
+            phone: phone,
             role: Roles.user);
       }
 

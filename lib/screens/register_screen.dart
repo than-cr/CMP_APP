@@ -8,6 +8,7 @@ class RegisterScreen extends StatelessWidget {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController lastNameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController passwordConfirmController =
       TextEditingController();
@@ -52,6 +53,14 @@ class RegisterScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 30),
             //width: 90,
             child: TextFormField(
+              controller: phoneController,
+              decoration: const InputDecoration(labelText: 'Teléfono'),
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            //width: 90,
+            child: TextFormField(
               controller: passwordController,
               obscureText: true,
               autocorrect: false,
@@ -77,6 +86,7 @@ class RegisterScreen extends StatelessWidget {
                     name: nameController.text,
                     lastName: lastNameController.text,
                     email: emailController.text,
+                    phone: phoneController.text,
                     password: passwordController.text,
                     passwordConfirmed: passwordConfirmController.text,
                     context: context);
