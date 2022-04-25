@@ -1,4 +1,7 @@
+import 'package:cmp_app/models/user_model.dart';
+import 'package:cmp_app/services/user_service.dart';
 import 'package:cmp_app/utils/common.dart';
+import 'package:cmp_app/utils/types.dart';
 import 'package:cmp_app/utils/validators.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +12,10 @@ class AuthenticationService {
   AuthenticationService(this._firebaseAuth);
 
   Stream<User?> get authStateChanges => _firebaseAuth.authStateChanges();
+
+  User? getLoggedUser() {
+    return _firebaseAuth.currentUser;
+  }
 
   Future<String> signIn(
       {required String email,
@@ -33,6 +40,7 @@ class AuthenticationService {
       {required String name,
       required String lastName,
       required String email,
+      required String phone,
       required String password,
       required String passwordConfirmed,
       required BuildContext context}) async {
@@ -55,6 +63,20 @@ class AuthenticationService {
       await user.reload();
 
       user = _firebaseAuth.currentUser;
+
+      late Users myUser;
+      if (user != null) {
+        myUser = Users(
+            uid: user.uid,
+            name: name,
+            lastName: lastName,
+            email: email,
+            phone: phone,
+            role: Roles.user);
+      }
+
+      UserService().addUser(myUser);
+
       Common.showAlert(context, 'Registro exitoso', true);
       Navigator.pop(context);
       return 'Registro exitoso';
